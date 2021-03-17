@@ -65,7 +65,7 @@ if url is not 'insert url here':
     for sent in sentence_list:
         for word in nltk.word_tokenize(sent.lower()):
             if word in word_frequencies.keys():
-                if len(sent.split(' ')) < 40:
+                if len(sent.split(' ')) < 50:
                     if sent not in sentence_score.keys():
                         sentence_score[sent] = word_frequencies[word]
                     else:
