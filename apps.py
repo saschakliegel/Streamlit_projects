@@ -11,7 +11,7 @@ def load_css(file_name:str)->None:
     """
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-load_css('style.css')
+    load_css('style.css')
 st.title ('Summarizing Your Article')
 # url = 'https://www.esquire.com/uk/culture/advice/a9641/things-men-dont-know-about-women-caitlin-moran/'
 
@@ -74,7 +74,7 @@ if url is not 'insert url here':
 
     import heapq
     def load_css(file_name:str)->None:
-    load_css('style.css')
+        load_css('style.css')
     sentences = st.slider('Please choose the number of sentences to display',min_value= 5,max_value= 30, value=10, step=1, key = 'First Slider')
     summary_sentences = heapq.nlargest(sentences, sentence_score, key=sentence_score.get)
 
