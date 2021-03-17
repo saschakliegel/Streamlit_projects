@@ -74,7 +74,7 @@ if url is not 'insert url here':
 
     import heapq
 
-    sentences = st.slider('How many sentences',min_value= 5,max_value= 25, value=10, step=1, key = 'First Slider')
+    sentences = st.slider('How many sentences',min_value= 5,max_value= 30, value=10, step=1, key = 'First Slider')
     summary_sentences = heapq.nlargest(sentences, sentence_score, key=sentence_score.get)
 
     summary = ' '.join(summary_sentences)
