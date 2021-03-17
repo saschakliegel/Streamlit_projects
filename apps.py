@@ -73,7 +73,13 @@ if url is not 'insert url here':
 
 
     import heapq
-
+    def load_css(file_name:str)->None:
+    """
+    Function to load and render a local stylesheet
+    """
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        load_css('style.css')
     sentences = st.slider('Please choose the number of sentences to display',min_value= 5,max_value= 30, value=10, step=1, key = 'First Slider')
     summary_sentences = heapq.nlargest(sentences, sentence_score, key=sentence_score.get)
 
