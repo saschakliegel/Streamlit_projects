@@ -3,6 +3,7 @@ import nltk
 import bs4 as bs
 import urllib.request
 import re
+import fitz  
 
 
 def load_css(file_name:str)->None:
@@ -32,8 +33,7 @@ if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:
 
 
     if uploaded_text:
-        for line in uploaded_text:
-            article_text= str(st.write(line))
+        article_text = st.write(uploaded_text.read())), str()
 
 
 
