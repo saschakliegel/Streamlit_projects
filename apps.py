@@ -3,7 +3,6 @@ import nltk
 import bs4 as bs
 import urllib.request
 import re
-import awesome_streamlit as ast
 
 
 def load_css(file_name:str)->None:
@@ -18,9 +17,9 @@ st.title ('Summarizing Your Article')
 uploaded_text = st.file_uploader("Upload a .txt_file here:")
 url = st.text_input("Url",value="insert url here")
 
-if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:':
+if url != 'insert url here' or uploaded_text != 'Upload a PDF/Text here:':
 
-    if url is not 'insert url here':
+    if url != 'insert url here':
         scrabed_data = urllib.request.urlopen(url)
         article =scrabed_data.read()
 
@@ -31,6 +30,13 @@ if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:
         for p in paragraphs:
             article_text += p.text
 
+        article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
+        article_text = re.sub(r'\s+', ' ', article_text)
+
+
+
+    formatted_article_text = re.sub('[^a-zA-Z]', ' ', article_text)
+    formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
 
     if uploaded_text:
         article_text = st.write(uploaded_text.read()), str()
@@ -44,13 +50,13 @@ if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:
         formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
 
 
-    article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
-    article_text = re.sub(r'\s+', ' ', article_text)
+    # article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
+    # article_text = re.sub(r'\s+', ' ', article_text)
 
 
 
-    formatted_article_text = re.sub('[^a-zA-Z]', ' ', article_text)
-    formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
+    # formatted_article_text = re.sub('[^a-zA-Z]', ' ', article_text)
+    # formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
 
 
 
