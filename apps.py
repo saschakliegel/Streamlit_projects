@@ -31,9 +31,9 @@ if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:
             article_text += p.text
 
 
-    if uploaded_text is not 'Upload a PDF/Text here:':
-        with open(uploaded_text) as f:
-            article_text = f.readlines()
+    if uploaded_text:
+        for line in uploaded_file:
+            artical_text= st.write(line)
 
 
 
