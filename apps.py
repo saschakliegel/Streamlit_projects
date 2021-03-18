@@ -14,19 +14,26 @@ def load_css(file_name:str)->None:
 load_css('style.css')
 st.title ('Summarizing Your Article')
 # url = 'https://www.todayonline.com/singapore/spore-pilot-new-covid-19-test-selected-weddings-live-shows-move-resume-large-scale-0'
-uploaded_image = st.file_uploader("Upload an image here:")
+uploaded_text = st.file_uploader("Upload a .txt_file here:")
 url = st.text_input("Url",value="insert url here")
 
-if url is not 'insert url here':
-    scrabed_data = urllib.request.urlopen(url)
-    article =scrabed_data.read()
+if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:':
 
-    parsed_article = bs.BeautifulSoup(article,'lxml')
+    if url is not 'insert url here':
+        scrabed_data = urllib.request.urlopen(url)
+        article =scrabed_data.read()
 
-    paragraphs = parsed_article.find_all('p')
-    article_text = ""
-    for p in paragraphs:
-        article_text += p.text
+        parsed_article = bs.BeautifulSoup(article,'lxml')
+
+        paragraphs = parsed_article.find_all('p')
+        article_text = ""
+        for p in paragraphs:
+            article_text += p.text
+
+
+    if uploaded_text is not 'Upload a PDF/Text here:':
+        with open(uploaded_text) as f:
+            article_text = f.readlines()
 
 
 
