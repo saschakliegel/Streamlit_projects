@@ -3,7 +3,7 @@ import nltk
 import bs4 as bs
 import urllib.request
 import re
-
+import io
 
 def load_css(file_name:str)->None:
     """
@@ -32,9 +32,15 @@ if (url is not 'insert url here') or (uploaded_text is not None):
 
 
     elif uploaded_text is not None:
-        article_text= st.write(upload_text.read()), str()
-        print(article_text)
+        # To convert to a string based IO:
+        stringio = io.StringIO(uploaded_text.getvalue().decode("utf-8"))
+        # st.write(stringio)
 
+         # To read file as string:
+        uploaded_text = stringio.read()
+        article_text = uploaded_text
+        # st.write(uploaded_text)
+        
 
 
     article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)
