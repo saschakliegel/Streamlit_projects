@@ -3,7 +3,7 @@ import nltk
 import bs4 as bs
 import urllib.request
 import re
-import fitz  
+import awesome_streamlit as ast
 
 
 def load_css(file_name:str)->None:
