@@ -35,8 +35,8 @@ if url != 'insert url here' or uploaded_text != 'Upload a PDF/Text here:':
 
 
 
-    formatted_article_text = re.sub('[^a-zA-Z]', ' ', article_text)
-    formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
+        formatted_article_text = re.sub('[^a-zA-Z]', ' ', article_text)
+        formatted_article_text = re.sub(r'\s+', ' ', formatted_article_text)
 
     if uploaded_text:
         article_text = st.write(uploaded_text.read()), str()
