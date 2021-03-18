@@ -17,7 +17,7 @@ st.title ('Summarizing Your Article')
 uploaded_text = st.file_uploader("Upload a .txt_file here:")
 url = st.text_input("Url",value="insert url here")
 
-if url != 'insert url here' or uploaded_text != 'Upload a PDF/Text here:':
+if (url is not 'insert url here') or (uploaded_text is not None):
 
     if url != 'insert url here':
         scrabed_data = urllib.request.urlopen(url)
@@ -31,8 +31,9 @@ if url != 'insert url here' or uploaded_text != 'Upload a PDF/Text here:':
             article_text += p.text
 
 
-    elif uploaded_text:
+    elif uploaded_text is not None:
         article_text= st.write(upload_text.read()), str()
+        print(article_text)
 
 
 
