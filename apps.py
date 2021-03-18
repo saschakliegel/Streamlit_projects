@@ -13,8 +13,8 @@ def load_css(file_name:str)->None:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 load_css('style.css')
 st.title ('Summarizing Your Article')
-# url = 'https://www.esquire.com/uk/culture/advice/a9641/things-men-dont-know-about-women-caitlin-moran/'
-
+# url = 'https://www.todayonline.com/singapore/spore-pilot-new-covid-19-test-selected-weddings-live-shows-move-resume-large-scale-0'
+uploaded_image = st.file_uploader("Upload an image here:")
 url = st.text_input("Url",value="insert url here")
 
 if url is not 'insert url here':
