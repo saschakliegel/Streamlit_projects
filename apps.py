@@ -33,7 +33,7 @@ if url is not 'insert url here' or uploaded_text is not 'Upload a PDF/Text here:
 
 
     if uploaded_text:
-        article_text = st.write(uploaded_text.read())), str()
+        article_text = st.write(uploaded_text.read()), str()
 
 
 
