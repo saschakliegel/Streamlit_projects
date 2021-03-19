@@ -12,7 +12,7 @@ def load_css(file_name:str)->None:
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 load_css('style.css')
-st.title (':sunglasses: *Summarizing Your Article* :sunglasses:')
+st.title ('*Summarizing Your Article* :sunglasses:')
 # url = 'https://www.todayonline.com/singapore/spore-pilot-new-covid-19-test-selected-weddings-live-shows-move-resume-large-scale-0'
 uploaded_text = st.file_uploader("Upload a .txt_file here:")
 url = st.text_input("Url",value="insert url here")
