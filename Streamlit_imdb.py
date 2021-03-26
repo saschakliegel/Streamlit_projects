@@ -20,8 +20,8 @@ import warnings; warnings.simplefilter('ignore')
 
 
 
-meta = pd.read_csv('/Users/Sergiokl1/Downloads/IMbd_project/meta.csv', header = 0)
-meta_cleaned = pd.read_csv('/Users/Sergiokl1/Downloads/IMbd_project/meta_cleaned.csv',header = 0)
+meta = pd.read_csv('/Users/Sergiokl1/Downloads/Streamlit_projects/meta.csv', header = 0)
+meta_cleaned = pd.read_csv('/Users/Sergiokl1/Downloads/Streamlit_projects/meta_cleaned.csv',header = 0)
 
 def movie_recommender(distance_method, id, N):
     
@@ -52,15 +52,6 @@ def movie_recommender(distance_method, id, N):
     return l1
 
 # movie_recommender(hamming,choice_id,10)
-
-def load_css(file_name:str)->None:
-    """
-    Function to load and render a local stylesheet
-    """
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-load_css('style.css')
-
 
 st.title("Movie Recommender")
 
